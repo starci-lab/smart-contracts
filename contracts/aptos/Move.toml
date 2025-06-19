@@ -1,0 +1,18 @@
+[package]
+name = "CifarmSwap"
+version = "1.0.0"
+authors = []
+
+[addresses]
+test_coin = "0x16"
+zero = "0000000000000000000000000000000000000000000000000000000000000000"
+
+cifarm = "0xb02342f96dc6862bf2d10741b40fbfd8533916743b51f79a8fc013198d78b329"
+dev = "367a91c8f1ead5102a1f7505b7430516cae975386a4966794832f505c344e6ec"
+default_admin = "367a91c8f1ead5102a1f7505b7430516cae975386a4966794832f505c344e6ec"
+
+[dependencies]
+AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-framework/", rev = "main" }
+AptosStdlib = {git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-stdlib/", rev = "2a458b5ffaaf6a9de6fac679a53912c0be9fe217"}
+
+[dev-dependencies]

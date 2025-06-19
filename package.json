@@ -1,0 +1,30 @@
+{
+  "name": "smart-contracts",
+  "version": "1.0.0",
+  "description": "The Boilerplate template provides a starter dapp with all necessary dapp infrastructure and a simple wallet info implementation, transfer APT and a simple message board functionality to send and read a message on chain.",
+  "homepage": "https://github.com/starci-lab/smart-contracts#readme",
+  "bugs": {
+    "url": "https://github.com/starci-lab/smart-contracts/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/starci-lab/smart-contracts.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "aptos:test": "node ./scripts/aptos/test",
+    "aptos:compile": "node ./scripts/aptos/compile",
+    "aptos:publish": "node ./scripts/aptos/publish && node ./scripts/aptos/get_abi",
+    "aptos:upgrade": "node ./scripts/aptos/upgrade && node ./scripts/aptos/get_abi"
+  },
+  "devDependencies": {
+    "dotenv": "^16.5.0",
+    "tree-kill": "^1.2.2"
+  },
+  "dependencies": {
+    "@aptos-labs/ts-sdk": "^2.0.1"
+  }
+}
