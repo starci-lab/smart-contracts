@@ -1,8 +1,15 @@
-# Cifarm Aptos Smart Contracts Boilerplate
+# Cifarm Multichain Smart Contracts Boilerplate
 
-This repository provides a robust boilerplate for developing, testing, and deploying Move smart contracts on the Aptos blockchain. It includes a modular contract system, developer scripts, and a clear workflow for local and testnet development.
+This repository provides a robust, extensible boilerplate for developing, testing, and deploying smart contracts across multiple blockchains. It currently supports Aptos (Move) and is structured for easy extension to Solana and other chains in the future.
 
-## Project Structure
+## Project Overview
+
+- **Multichain Ready:** Unified structure for Aptos, Solana, and more.
+- **Modular Contracts:** Organized by chain, with clear separation of sources, scripts, and tests.
+- **Developer Experience:** Node.js scripts for compilation, testing, deployment, and ABI management.
+- **Extensible:** Add new chains by following the established folder and script patterns.
+
+## Directory Structure
 
 ```
 smart-contracts/
@@ -29,15 +36,21 @@ smart-contracts/
         test.js
         upgrade.js
     solana/
-      contract/
-      scripts/
+      contract/           # Placeholder for Solana smart contracts
+      scripts/            # Placeholder for Solana deployment/testing scripts
   package.json
   README.md
   test-scripts/
     hello-world.js
 ```
 
-## Main Move Modules
+---
+
+## Supported Chains
+
+### Aptos
+
+#### Main Move Modules
 
 - **swap.move**: Core Uniswap v2-like AMM logic (pair creation, liquidity, swaps, LP tokens).
 - **router.move**: User-facing entry points for creating pairs, adding/removing liquidity, and swapping tokens.
@@ -45,11 +58,11 @@ smart-contracts/
 - **Math.move**: General math utilities (sqrt, min, max, pow).
 - **u256.move**: 256-bit integer arithmetic for high-precision calculations.
 
-## Test Modules
+#### Test Modules
 - **swap_test.move**: Comprehensive tests for swap, liquidity, and edge cases.
 - **test_coins.move**: Test coin definitions and minting utilities for local testing.
 
-## Developer Scripts
+#### Developer Scripts
 All scripts are in `contracts/aptos/scripts/` and can be run via npm scripts (see below):
 
 - **compile.js**: Compile Move contracts using Aptos TS SDK.
@@ -58,7 +71,7 @@ All scripts are in `contracts/aptos/scripts/` and can be run via npm scripts (se
 - **upgrade.js**: Upgrade an already published Move package.
 - **get_abi.js**: Fetch and save ABI for deployed modules.
 
-## NPM Scripts
+#### NPM Scripts
 Defined in `package.json`:
 
 - `npm run aptos:compile` — Compile Move contracts
@@ -66,7 +79,7 @@ Defined in `package.json`:
 - `npm run aptos:publish` — Publish contract and fetch ABI
 - `npm run aptos:upgrade` — Upgrade contract and fetch ABI
 
-## Environment Setup
+#### Environment Setup
 Create a `.env` file in the root with the following variables:
 
 ```
@@ -84,7 +97,7 @@ DEFAULT_ADMIN_ACCOUNT_ADDRESS=
 - `NEXT_PUBLIC_MODULE_ADDRESS` is set automatically after publishing.
 - Never commit private keys to public repositories.
 
-## How to Use
+#### How to Use
 
 1. **Install dependencies**
    ```sh
@@ -117,7 +130,7 @@ DEFAULT_ADMIN_ACCOUNT_ADDRESS=
    npm run aptos:upgrade
    ```
 
-## Move.toml Example
+#### Move.toml Example
 
 ```
 [package]
@@ -136,21 +149,42 @@ AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", subdir 
 AptosStdlib = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-stdlib/", rev = "2a458b5ffaaf6a9de6fac679a53912c0be9fe217" }
 ```
 
-## Testing
+#### Testing
 - All core logic is covered by Move unit tests in `swap_test.move`.
 - Run tests with `npm run aptos:test`.
 
-## Example: Hello World Script
+#### Example: Hello World Script
 A simple script to check Aptos node connectivity:
 
 ```
 node test-scripts/hello-world.js
 ```
 
+---
+
+### Solana (In Progress)
+
+- The Solana contract and script folders are present as placeholders for future development.
+- Solana support will include Rust smart contracts and deployment/testing scripts, following a similar structure to Aptos.
+- Contributions for Solana and other chains are welcome!
+
+---
+
+## Extending to More Chains
+
+To add support for a new blockchain:
+1. Create a new subfolder under `contracts/` (e.g., `contracts/evm/` for Ethereum-compatible chains).
+2. Add `contract/` and `scripts/` subfolders for your new chain.
+3. Follow the patterns established for Aptos and Solana for organization and scripting.
+4. Update this README to document the new chain's setup and usage.
+
+---
+
 ## References
 - [Aptos Move Book](https://move-language.github.io/move/)
 - [Aptos TS SDK](https://github.com/aptos-labs/aptos-ts-sdk)
 - [Aptos CLI](https://github.com/aptos-labs/aptos-core/tree/main/crates/aptos)
+- [Solana Docs](https://docs.solana.com/) *(Solana support coming soon)*
 
 ---
 
