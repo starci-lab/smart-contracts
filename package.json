@@ -15,10 +15,10 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "aptos:test": "node ./scripts/aptos/test",
-    "aptos:compile": "node ./scripts/aptos/compile",
-    "aptos:publish": "node ./scripts/aptos/publish && node ./scripts/aptos/get_abi",
-    "aptos:upgrade": "node ./scripts/aptos/upgrade && node ./scripts/aptos/get_abi"
+    "aptos:test": "node ./contracts/aptos/scripts/test.js",
+    "aptos:compile": "node ./contracts/aptos/scripts/compile.js",
+    "aptos:publish": "node ./contracts/aptos/scripts/publish.js && node ./contracts/aptos/scripts/get_abi.js",
+    "aptos:upgrade": "node ./contracts/aptos/scripts/upgrade.js && node ./contracts/aptos/scripts/get_abi.js"
   },
   "devDependencies": {
     "dotenv": "^16.5.0",

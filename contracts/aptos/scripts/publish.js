@@ -8,7 +8,7 @@ async function publish() {
 
   move
     .createObjectAndPublishPackage({
-      packageDirectoryPath: "contracts/aptos",
+      packageDirectoryPath: "contracts/aptos/contract",
       addressName: "ci_swap_addr",
       namedAddresses: {
         // Publish module to new object, but since we create the object on the fly, we fill in the publisher's account address here

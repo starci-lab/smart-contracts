@@ -12,7 +12,7 @@ async function publish() {
   const move = new cli.Move();
 
   move.upgradeObjectPackage({
-    packageDirectoryPath: "contracts/aptos",
+    packageDirectoryPath: "contracts/aptos/contract",
     objectAddress: process.env.NEXT_PUBLIC_MODULE_ADDRESS,
     namedAddresses: {
       // Upgrade module from an object
